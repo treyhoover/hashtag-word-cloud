@@ -1,0 +1,54 @@
+/**
+Overwriting default airbnb rules.
+Description of how we are overwriting it can be found above each rule.
+Suggestions are welcomed.
+
+"off" or 0 - turn the rule off
+"warn" or 1 - turn the rule on as a warning (doesn't affect exit code)
+"error" or 2 - turn the rule on as an error (exit code is 1 when triggered)
+*/
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules":{
+    //trailing commas not allowed.
+    "comma-dangle": [2, "never"],
+    //ECMAScript modules are always in strict mode.
+    //ES6 modules are strict mode by default, so "use strict" is unnecessary. -Project Lead ESLint
+    "strict": [2, "never"],
+    //Prevents __dirname from being flagged.
+    "prefer-template" : [0],
+    //prevent require's not found at the top of the file from being flagged
+    "global-require": [0],
+    //prevent uppercase from being constructor only.
+    //it was flagging require('value').Property
+    "new-cap": [2, {"properties": false}],
+    //making this a warning until we decide if we want to trully
+    //force using only 'let' and 'const'.
+    "no-var": [1],
+    //making this a warning until we decide it we want to
+    //enforce using only arrow functions.
+    "prefer-arrow-callback": [1],
+    //enforce the use of path.join or path.resolve when creating paths.
+    "no-path-concat": [2],
+    //allows unnamed functions to be used.
+    "func-names": [0],
+    //prevent long comments from triggering max-length error.
+    //Increasing code length from 80 to 115. It includes spaces.
+    "max-len": [2, {"ignoreComments": true, "code": 115}],
+    //unused arguments will not trigger this error.
+    "no-unused-vars": [2, { "args": "none" }],
+    //allow function hoisting
+    "no-use-before-define": [2, {"functions": false}],
+    //['key'] syntax is useful for signifying data extraction
+    "dot-notation": [0],
+    //allow console errors and warnings
+    "no-console": [2, {"allow": ["warn", "error", "info"]}],
+    //Quoted props useful for consistency when adjacent to props that must be quoted
+    "quote-props": [0],
+    "consistent-return": [0],
+    "no-return-assign": [0],
+    //allow "private" variable denotation via _var syntax
+    "no-underscore-dangle": [0]
+  }
+}

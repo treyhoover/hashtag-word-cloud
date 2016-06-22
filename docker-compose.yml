@@ -1,0 +1,13 @@
+version: '2'
+services:
+  app:
+    image: app
+    build:
+      context: .
+      dockerfile: .docker/docker-app.dockerfile
+    volumes:
+      - ./src:/home/app/src
+      - ./server.js:/home/app/server.js
+    ports:
+      - "3000:3000"
+    env_file: ./.docker/env/app.development.env

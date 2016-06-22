@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+dist
+*.log
+coverage
+.idea
+*.iml
+.docker/env/app.development.env
+.docker/env/app.production.env
